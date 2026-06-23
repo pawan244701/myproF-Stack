@@ -32,23 +32,23 @@
             <div id="div-contory">
                 <label for="contory" id="contory-lbl">contory</label>
                 <select name="contory" id="contory">
-                    <option value="contories">--select contory--</option>
+                    <option value="">--select contory--</option>
                 </select>
             </div>
             <div id="div-state">
                 <label for="state" id="state-lbl">state</label>
                 <select name="states" id="states">
-                    <option value="states">--select state--</option>
+                    <option value="">--select state--</option>
                 </select>
             </div>
             <div id="div-district">
                 <label for="district" id="district-lbl">district</label>
-                                <select name="district" id="district">
-                    <option value="district">--select district--</option>
+                <select name="district" id="district" required>
+                    <option value="">--select district--</option>
                 </select>
 
             </div>
-             <br>
+            <br>
             <div id="div-uniqe-name">
                 <label for="uniqe-name" id="uniqe-name-lbl">uniqe-name</label>
                 <input type="text" id="uniqe-name" placeholder="uniqe-name" required>
@@ -66,7 +66,9 @@
                 <button type="submit" id="form-btn-1">Create Account</button>
             </div>
             <div class="login-link-cls">
-                <a href="login.html"> <p>Already have an Account! Login</p></a>
+                <a href="login.html">
+                    <p>Already have an Account! Login</p>
+                </a>
             </div>
         </form>
     </div>
