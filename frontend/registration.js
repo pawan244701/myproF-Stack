@@ -612,6 +612,10 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
+    if (password !== confirmPassword) {
+        alert("password and confirm password should be same")
+        return;
+    }
     const response = await fetch('/api/auth/reg', {
         method: 'POST',
         headers: {

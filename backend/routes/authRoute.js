@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/authController');
+const authControllerSendOtp = require('../controllers/authControllerSendOtp');
+const authControllerVerifyOTP = require('../controllers/authControllerVerifyOTP');
 const authControllerReg = require('../controllers/authControllerReg');
 const authControllerLogin = require('../controllers/authControllerLogin');
 
-// email otp varification
-router.post('/send-otp', authController.sendOtp);
-router.post('/verify-otp', authController.verifyOTP);
+// send otp to email
+router.post('/send-otp', authControllerSendOtp.sendOtp);
+// verify opt
+router.post('/verify-otp', authControllerVerifyOTP.verifyOTP);
 // registration
 router.post('/reg', authControllerReg.regUser);
 // login
