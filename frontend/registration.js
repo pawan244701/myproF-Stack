@@ -174,7 +174,6 @@ const locations = {
                 "ntr-district", "krishna"
             ],
 
-
         "Arunachal Pradesh":
             [
                 "anjaw", "bichom", "changlang",
@@ -588,7 +587,7 @@ jsSelectContory.addEventListener('change', function () {
         option.textContent = stateName;
         jsSelectState.appendChild(option);
     });
-})
+});
 
 jsSelectState.addEventListener('change', function () {
     const tempVarSelectedState = this.value;
@@ -599,4 +598,35 @@ jsSelectState.addEventListener('change', function () {
         option.textContent = districtName;
         jsSelectDistrict.appendChild(option);
     });
-})
+});
+
+document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const realName = document.getElementById('realName').value;
+    const genderElement = document.querySelector('input[name="gender"]:checked');
+    const gender = genderElement ? genderElement.value : [];
+    const contory = document.getElementById('contory').value;
+    const state = document.getElementById('states').value;
+    const district = document.getElementById('district').value;
+    const uniqeName = document.getElementById('uniqeName').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    const response = await fetch('/api/auth/reg', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            realName, gender, contory, state, district, uniqeName, password, confirmPassword
+        })
+    });
+    if (response.ok) {
+        const data = await response.json();
+        window.location.href = '/home.html';
+    } else {
+        const errData = await response.json();
+        alert(errData.message || "registrtion failed! try again.");
+    }
+});
+
