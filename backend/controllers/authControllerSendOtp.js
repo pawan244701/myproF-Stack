@@ -21,6 +21,16 @@ exports.sendOtp = async(req, res) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const expireAt = new Date(Date.now() + 5 * 60 * 1000);
     try {
+        const [availbleOTP] = await db.query(
+            "SELECT * FROM email_otps WHERE email = ? AND expires_at > NOW()", [email]
+        );
+        if (availbleOTP.length > 0) {
+            return res.status(400).json({
+                success: false,
+                message: "OTP is already sended on your email!"
+            });
+        }
+
         await db.query(
             `INSERT INTO email_otps (email, otp, expires_at)
             VALUES (?, ?, ?)

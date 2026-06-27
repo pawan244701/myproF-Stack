@@ -1,4 +1,5 @@
 require('dotenv').config();
+const db = require('./config/database');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -9,6 +10,12 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/email.html'));
 });
+
+setInterval( async () => {
+    await db.query(
+        "DELETE FROM email_otps WHERE expires_at < NOW()"
+    );
+}, 15000);
 
 app.use(cors());
 app.use(express.json());

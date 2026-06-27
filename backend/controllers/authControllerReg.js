@@ -2,22 +2,23 @@ require('dotenv').config();
 const db = require('../config/database');
 
 exports.regUser = async (req, res) => {
-    const { realName, gender, contory, state, district, uniqeName, password, confirmPassword } = req.body;
+    const { realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email } = req.body;
     try {
-        const [firstRows] = await db.query(
+        const [checkUniqeName] = await db.query(
             "SELECT * FROM registration WHERE uniqeName = ?", [uniqeName]
         );
-        if (firstRows.length > 0) {
+        if (checkUniqeName.length > 0) {
             return res.status(400).json({
                 message: "user allready exist! try with diffrent uniqe name 400"
             });
         }
-        const [rows] = await db.query(
-            "INSERT INTO registration (realName, gender, contory, state, district, uniqeName, password, confirmPassword) VALUES (?,?,?,?,?,?,?,?)",
-            [realName, gender, contory, state, district, uniqeName, password, confirmPassword]
+        const [insertDataToDB] = await db.query(
+            "INSERT INTO registration (realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email) VALUES (?,?,?,?,?,?,?,?,?,?)",
+            [realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email]
         );
         return res.status(200).json({
-            message: "reg successfull."
+            message: "reg successfull.",
+            username: uniqeName
         });
 
     } catch (err) {
@@ -26,4 +27,3 @@ exports.regUser = async (req, res) => {
         });
     }
 };
-
