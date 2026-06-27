@@ -1,11 +1,12 @@
 const logoutbtn = document.getElementById('logout');
 logoutbtn.addEventListener('click', () => {
-    localStorage.removeItem('loggedInUser');
+    sessionStorage.clear();
+    localStorage.clear();
     window.location.href = 'login.html'
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const savedName = localStorage.getItem('loggedInUser');
+    const savedName = sessionStorage.getItem('loggedInUser');
     const greetH1 = document.getElementById('greetmsg');
 
 

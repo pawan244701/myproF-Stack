@@ -15,7 +15,7 @@ document.getElementById('loginFrm').addEventListener('submit', async (e) => {
     });
     if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('loggedInUser', data.username);
+        sessionStorage.setItem('loggedInUser', data.username);
         window.location.href = 'home.html'
     } else {
         const errdata = await response.json();

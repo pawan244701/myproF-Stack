@@ -603,6 +603,7 @@ jsSelectState.addEventListener('change', function () {
 document.getElementById('registrationForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const realName = document.getElementById('realName').value;
+    const dob = document.getElementById('dob').value;
     const genderElement = document.querySelector('input[name="gender"]:checked');
     const gender = genderElement ? genderElement.value : [];
     const contory = document.getElementById('contory').value;
@@ -611,6 +612,7 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
     const uniqeName = document.getElementById('uniqeName').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
+    const email = sessionStorage.getItem('userEmail');
 
     if (password !== confirmPassword) {
         alert("password and confirm password should be same")
@@ -622,15 +624,15 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            realName, gender, contory, state, district, uniqeName, password, confirmPassword
+            realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email
         })
     });
     if (response.ok) {
         const data = await response.json();
+        sessionStorage.setItem('loggedInUser', data.username);
         window.location.href = '/home.html';
     } else {
         const errData = await response.json();
         alert(errData.message || "registrtion failed! try again.");
     }
 });
-

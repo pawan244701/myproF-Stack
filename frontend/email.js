@@ -12,9 +12,10 @@ document.getElementById('emailForm').addEventListener('submit', async (e) => {
         })
     });
     if (response.ok) {
-        localStorage.setItem('userEmail', email);
+        sessionStorage.setItem('userEmail', email);
         window.location.href = 'otp.html';
     } else {
-        alert('Failed to send otp. tyr again');
+        const errData = await response.json();
+        alert(errData.message || 'from frontend : Failed to send otp. tyr again');
     }
 });
