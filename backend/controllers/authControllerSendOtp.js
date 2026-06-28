@@ -43,13 +43,13 @@ exports.sendOtp = async(req, res) => {
             [email, otp, expireAt, otp, expireAt]
         );
 // sending email containning otp
-        await transporter.sendMail({
-            from: `"myproF-Stack" <${process.env.EMAIL}>`,
-            replyTo: 'noreply@pawan244701.com',
-            to: email,
-            subject: 'Your OTP to verify your Email',
-            text: `Your OTP is ${otp}. It is valid only for 5 minites.`
-        });
+        // await transporter.sendMail({
+        //     from: `"myproF-Stack" <${process.env.EMAIL}>`,
+        //     replyTo: 'noreply@pawan244701.com',
+        //     to: email,
+        //     subject: 'Your OTP to verify your Email',
+        //     text: `Your OTP is ${otp}. It is valid only for 5 minites.`
+        // });
 
 // console.log('testing mail offline');
 // console.log(`user email: ${email}`);
