@@ -4,6 +4,11 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
     service: 'email',
+    // mail; wasn't getting send and were giving me server err. So changing port for mail service from 587 to 465
+    // bcoz render blocks it to prevent spams [gemini told]
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAILPASS
