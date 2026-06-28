@@ -1,3 +1,9 @@
+const chechEmailOnSessionStorage = sessionStorage.getItem('userEmail');
+if (!chechEmailOnSessionStorage) {
+    alert('Access denied! please verify Email first.');
+    window.location.href = 'email.html';
+}
+
 const locations = {
     "Afghanistan": {
 
@@ -612,8 +618,8 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
     const uniqeName = document.getElementById('uniqeName').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-    const email = sessionStorage.getItem('userEmail');
-
+    // const email = sessionStorage.getItem('userEmail'); // copied to line: 1
+    
     if (password !== confirmPassword) {
         alert("password and confirm password should be same")
         return;
@@ -624,7 +630,7 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email
+            realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email: chechEmailOnSessionStorage
         })
     });
     if (response.ok) {
@@ -633,6 +639,6 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
         window.location.href = '/home.html';
     } else {
         const errData = await response.json();
-        alert(errData.message || "registrtion failed! try again.");
+        alert(errData.message);
     }
 });
