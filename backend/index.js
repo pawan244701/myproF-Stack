@@ -22,5 +22,5 @@ app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use(express.static('../frontend'));
 
-const PORT = process.env.PORT;
+const PORT = process.env.SERVER_PORT;
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
