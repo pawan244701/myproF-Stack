@@ -89,8 +89,8 @@ const SibApiV3Sdk = require('@getbrevo/brevo'); // Adjusted to official Brevo SD
 
 // Initializing the transactional email service using your saved Render API Key
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-const apiKey = SibApiV3Sdk.ApiClient.instance.authentications['apiKey'];
-apiKey.apiKey = process.env.BREVO_API_KEY;
+
+apiInstance.setApiKey(SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
 
 // ask for email and send res accordinglly
 exports.sendOtp = async (req, res) => {
