@@ -82,15 +82,21 @@
 
 
 
-/// copied from AI
+
+// correct this and comment unwanted lines, don't delete anything
 require('dotenv').config();
 const db = require('../config/database');
-const SibApiV3Sdk = require('@getbrevo/brevo'); // Adjusted to official Brevo SDK
+const brevo = require('@getbrevo/brevo'); // Adjusted to official Brevo SDK
 
 // Initializing the transactional email service using your saved Render API Key
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+const apiInstance = new brevo.TransactionalEmailsApi();
 
-apiInstance.setApiKey(SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+// COMMENTED OUT: Old initialization method
+// apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+
+// FIXED: Sets the API key explicitly matching your Render variable: BREVO_API_KEY
+let apiKey = apiInstance.authentications['apiKey'];
+apiKey.apiKey = process.env.BREVO_API_KEY;
 
 // ask for email and send res accordinglly
 exports.sendOtp = async (req, res) => {
@@ -121,7 +127,7 @@ exports.sendOtp = async (req, res) => {
         );
 
         // Building the Brevo Transactional payload using standard open web structures
-        let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+        let sendSmtpEmail = new brevo.SendSmtpEmail();
         sendSmtpEmail.subject = 'Your OTP to verify your Email';
         sendSmtpEmail.textContent = `Your OTP is ${otp}. It is valid only for 5 minites.`;
         sendSmtpEmail.sender = { "name": "myproF-Stack", "email": process.env.EMAIL };
