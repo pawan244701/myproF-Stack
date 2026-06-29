@@ -88,15 +88,15 @@ require('dotenv').config();
 const db = require('../config/database');
 const brevo = require('@getbrevo/brevo'); // Adjusted to official Brevo SDK
 
-// Initializing the transactional email service using your saved Render API Key
-const apiInstance = new brevo.TransactionalEmailsApi();
+// COMMENTED OUT: Removed constructor paths causing the TypeError crash on boot
+// const apiInstance = new brevo.TransactionalEmailsApi();
+// let apiKey = apiInstance.authentications['apiKey'];
+// apiKey.apiKey = process.env.BREVO_API_KEY;
 
-// COMMENTED OUT: Old initialization method
-// apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
-
-// FIXED: Sets the API key explicitly matching your Render variable: BREVO_API_KEY
-let apiKey = apiInstance.authentications['apiKey'];
-apiKey.apiKey = process.env.BREVO_API_KEY;
+// FIXED: Modern client initialization pattern required by the newer SDK module
+const client = new brevo.BrevoClient({
+    apiKey: process.env.BREVO_API_KEY
+});
 
 // ask for email and send res accordinglly
 exports.sendOtp = async (req, res) => {
@@ -126,15 +126,13 @@ exports.sendOtp = async (req, res) => {
             [email, otp, expireAt, otp, expireAt]
         );
 
-        // Building the Brevo Transactional payload using standard open web structures
-        let sendSmtpEmail = new brevo.SendSmtpEmail();
-        sendSmtpEmail.subject = 'Your OTP to verify your Email';
-        sendSmtpEmail.textContent = `Your OTP is ${otp}. It is valid only for 5 minites.`;
-        sendSmtpEmail.sender = { "name": "myproF-Stack", "email": process.env.EMAIL };
-        sendSmtpEmail.to = [{ "email": email }];
-
-        // Fire request over standard port 443 web layer to clear Render's firewall
-        await apiInstance.sendTransacEmail(sendSmtpEmail);
+        // FIXED: Modern structural transactional API delivery dispatch
+        await client.transactionalEmails.sendTransacEmail({
+            subject: 'Your OTP to verify your Email',
+            textContent: `Your OTP is ${otp}. It is valid only for 5 minites.`,
+            sender: { "name": "myproF-Stack", "email": process.env.EMAIL },
+            to: [{ "email": email }]
+        });
 
         return res.status(200).json({
             message: "OTP send successfully."
