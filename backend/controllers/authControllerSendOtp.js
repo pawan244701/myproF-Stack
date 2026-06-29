@@ -130,7 +130,7 @@ exports.sendOtp = async (req, res) => {
         await client.transactionalEmails.sendTransacEmail({
             subject: 'Your OTP to verify your Email',
             textContent: `Your OTP is ${otp}. It is valid only for 5 minites.`,
-            sender: { "name": "myproF-Stack", "email": process.env.EMAIL },
+            sender: { "name": "pawan244701", "email": process.env.EMAIL },
             to: [{ "email": email }]
         });
 
