@@ -1,4 +1,4 @@
-const logoutbtn = document.getElementById('logout');
+const logoutbtn = document.getElementById('logoutBtn');
 logoutbtn.addEventListener('click', () => {
     sessionStorage.clear();
     localStorage.clear();
