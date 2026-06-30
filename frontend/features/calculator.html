@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    <script src="calculator.js" defer></script>
+<style>
+
+</style>
+</head>
+
+<body>
+    <div id="calculator">
+        <h2>calculator</h2>
+        <input id="display" name="display" readonly>
+        <div id="key-btn" name="key-btn">
+            <button onclick="clearDisplay()" class="clean-btn">C</button>
+            <button onclick="appendToDisplay('0')" class="num-btn">0</button>
+            <button onclick="appendToDisplay('.')" class="d-btn">.</button>
+            <button onclick="appendToDisplay('+')" class="op-btn">+</button>
+            <button onclick="appendToDisplay('7')" class="num-btn">7</button>
+            <button onclick="appendToDisplay('8')" class="num-btn">8</button>
+            <button onclick="appendToDisplay('9')" class="num-btn">9</button>
+            <button onclick="appendToDisplay('/')" class="op-btn">/</button>
+            <button onclick="appendToDisplay('4')" class="num-btn">4</button>
+            <button onclick="appendToDisplay('5')" class="num-btn">5</button>
+            <button onclick="appendToDisplay('6')" class="num-btn">6</button>
+            <button onclick="appendToDisplay('-')" class="op-btn">-</button>
+            <button onclick="appendToDisplay('1')" class="num-btn">1</button>
+            <button onclick="appendToDisplay('2')" class="num-btn">2</button>
+            <button onclick="appendToDisplay('3')" class="num-btn">3</button>
+            <button onclick="appendToDisplay('*')" class="op-btn">*</button>
+            <button onclick="calculate()" class="eql-btn">=</button>
+            <button onclick="backspace()" class="clean-btn">back</button>
+        </div>
+    </div>
+</body>
+
+</html>
