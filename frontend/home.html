@@ -5,40 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
-    <header>
+    <header class="headerCls">
         <a href="/home.html">
             <img src="image.jpg" alt="logo">
             <span>pawan244701</span>
         </a>
         <nav>
-            <div>
+            <div class="headerNavCls">
                 <button id="profileBtn" class="profileDropdownBtn">
-                    <span class="profileIcon">unicode</span>prodile<span class="arrow">arrow-unicode</span>
+                    <span class="profileIcon">&#128100;</span><span class="arrow">&#9663;</span>
                 </button>
-                <ul>
-                    <li>
-                        <a href="#">My Profile</a>
-                    </li>
-                    <li><a href="#">
-                        Game Status
-                    </a></li>
-                    <li>
-                        <a href="#">Account Setting</a>
-                    </li>
+                <ul class="profileDropdownListForProfile">
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Game Status</a></li>
+                    <li><a href="#">Account Setting</a></li>
                 </ul>
             </div>
             <button id="logoutBtn">Logout</button>
         </nav>
     </header>
-
-
-
     <h1 id="greetmsg"></h1>
-    
+    <div class="divMyGames">
+        <main class="gameSection">
+            <h2>Games</h2>
+            <div class="gameGrid">
+                <a href="/chess.html">
+                    <article class="gameCards1">
+                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
+                        <h3>Chess</h3>
+                        <p>play chess by clicking here.</p>
+                    </article>
+                </a>
+                <a href="/game2">
+                    <article class="gameCards2">
+                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
+                        <h3>game2</h3>
+                        <p>play chess by clicking here.</p>
+                    </article>
+                </a>
+                <a href="/game3">
 
+                    <article class="gameCards3">
+                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
+                        <h3>game3</h3>
+                        <p>play chess by clicking here.</p>
+                    </article>
+                </a>
+                <a href="/game4">
+
+                    <article class="gameCard4s">
+                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
+                        <h3>game4</h3>
+                        <p>play chess by clicking here.</p>
+                    </article>
+                </a>
+                <a href="/gaem5">
+
+                    <article class="gameCards5">
+                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
+                        <h3>game5</h3>
+                        <p>play chess by clicking here.</p>
+                    </article>
+                </a>
+            </div>
+        </main>
+        <aside class="sideSection">
+            <h2>Utilities</h2>
+            <div class="utilityCard calculatorBox">
+                <h3>Calculator</h3>
+                <iframe src="calculator.html" frameborder="0"></iframe>
+            </div>
+        </aside>
+
+
+    </div>
     <script src="home.js"></script>
 </body>
+
 </html>
