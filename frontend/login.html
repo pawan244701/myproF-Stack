@@ -5,29 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
+    <link rel="stylesheet" href="login.css">
+
 </head>
 
 <body>
     <div class="login-form-cls">
-        <h1>login</h1>
+
         <form id="loginFrm" action="" method="post">
+            <h1 id="h1">Login</h1>
             <div id="uniqe-name">
-                <label for="uniqeName">uniqe-name</label>
-                <input type="text" id="uniqeName" required>
+                <label for="uniqeName">Username</label>
+                <input type="text" id="uniqeName" placeholder="Username" required>
             </div>
             <div id="login-password">
-                <label for="loginPass">password</label>
-                <input type="password" id="loginPass" required>
+                <label for="loginPass">Password</label>
+                <input type="password" id="loginPass" placeholder="Password" required>
             </div>
             <div class="login-btn-cls">
                 <button type="submit" id="login-btn">Login</button>
             </div>
-            <div class="reg-btn-cls">
-                <a href="email.html">
-                    <p>Don't have an Account! signup</p>
-                </a>
-            </div>
+            <a id="signupLink" href="email.html">
+                <p>Don't have an Account! signup</p>
+            </a>
         </form>
+
     </div>
     <footer class="footer-cls">
         <div class="footer-div-cls">

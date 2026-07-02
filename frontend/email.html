@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>enter-email</title>
+    <link rel="stylesheet" href="email.css">
 </head>
 
 <body>
-    <h1>email varification</h1>
     <form id="emailForm" method="POST">
+        <h1 id="h1">email varification</h1>
+
         <input type="email" id="email" placeholder="example@email.com" required>
-        <button id="email-btn" type="submit">Send OTP</button>
-    </form>
-    <div class="login-link-cls">
-        <a href="login.html">
+        <button id="verify-btn" type="submit">Send OTP</button>
+        <a id="loginLink" href="login.html">
             <p>Already have an Account! Login</p>
         </a>
-    </div>
+    </form>
 
     <footer class="footer-cls">
         <div class="footer-div-cls">

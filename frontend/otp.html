@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>enter-otp</title>
+    <link rel="stylesheet" href="otp.css">
 </head>
 
 <body>
-    <h1>Enter OTP</h1>
-    <p>OTP has been send to your email.</p>
+
     <form id="otpForm" method="POST">
+        <h1>Enter OTP</h1>
+        <p>OTP has been send to your email.</p>
         <input type="text" id="otp" placeholder="010203" required maxlength="6">
         <button id="otp-btn" type="submit">Verify</button>
-    </form>
-    <div class="reg-btn-cls">
-        <a href="email.html">
+            <a id="reg-btn-cls" href="email.html">
             <p>send OTP again! session expired!</p>
         </a>
-    </div>
+    </form>
+
     <footer class="footer-cls">
         <div class="footer-div-cls">
             <p>&copy; 2026 pawan244701. All rights reserved.</p>
