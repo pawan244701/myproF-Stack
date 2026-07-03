@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup</title>
+    <link rel="stylesheet" href="x.css">
 </head>
 
 <body>
     <p>Your email has been verified.</p>
-    <h1>Fill out your personal details</h1>
+
     <div class="form-div-cls">
         <form id="registrationForm" action="" method="post" class="from-cls">
+            <h1 id="h1tag">Personal details</h1>
             <div id="div-real-name">
                 <label for="realName" id="realName-lbl">Real Name</label>
-                <input type="text" id="realName" placeholder="Real Name" required>
+                <input id="inpRealName" type="text" id="realName" placeholder="Real Name" required>
             </div>
             <div id="div-dob">
                 <label for="dob" id="dob-lbl">DOB</label>
@@ -22,13 +24,15 @@
             </div>
             <div id="div-gender">
                 <label id="gender-lbl">Gender</label>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">Male</lable>
+                <div id="genderRadio">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male" class="diffRadioBtn">Male</label>
 
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</lable>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female" class="diffRadioBtn">Female</label>
+                </div>
+
             </div>
-            <br>
             <div id="div-contory">
                 <label for="contory" id="contry-lbl">Country</label>
                 <select name="contory" id="contry">
@@ -48,9 +52,8 @@
                 </select>
 
             </div>
-            <br>
             <div id="div-uniqe-name">
-                <label for="uniqeName" id="uniqeName-lbl">username</label>
+                <label for="uniqeName" id="uniqeName-lbl">Username</label>
                 <input type="text" id="uniqeName" placeholder="Username" required>
             </div>
             <div id="div-pass">
@@ -61,11 +64,10 @@
                 <label for="confirmPassword" id="confirmPassword-lbl">Confirm Password</label>
                 <input type="password" id="confirmPassword" placeholder="kdjsh#a$%87jhAS" required>
             </div>
-            <div class="div-form-btns-cls"></div>
-            <div class="div-sub-reset-btns">
-                <button type="submit" id="form-btn-1">Create Account</button>
-            </div>
-            
+            <!-- <div class="div-sub-reset-btns"> -->
+            <button type="submit" id="form-btn-1">Create Account</button>
+            <!-- </div> -->
+
         </form>
     </div>
     <footer class="footer-cls">
