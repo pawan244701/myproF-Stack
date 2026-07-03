@@ -2,7 +2,7 @@ require('dotenv').config();
 const db = require('../config/database');
 
 exports.regUser = async (req, res) => {
-    const { realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email } = req.body;
+    const { realName, dob, gender, country, state, district, uniqeName, password, confirmPassword, email } = req.body;
     try {
         const [checkUniqeName] = await db.query(
             "SELECT * FROM registration WHERE uniqeName = ?", [uniqeName]
@@ -14,7 +14,7 @@ exports.regUser = async (req, res) => {
         }
         const [insertDataToDB] = await db.query(
             "INSERT INTO registration (realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email) VALUES (?,?,?,?,?,?,?,?,?,?)",
-            [realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email]
+            [realName, dob, gender, country, state, district, uniqeName, password, confirmPassword, email]
         );
         await db.query(
             "DELETE FROM email_otps WHERE email = ?", [email]

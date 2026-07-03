@@ -573,7 +573,7 @@ const locations = {
 };
 
 // 3 DOM var
-const jsSelectContory = document.getElementById('contory');
+const jsSelectContory = document.getElementById('country');
 const jsSelectState = document.getElementById('states');
 const jsSelectDistrict = document.getElementById('district');
 
@@ -608,11 +608,11 @@ jsSelectState.addEventListener('change', function () {
 
 document.getElementById('registrationForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const realName = document.getElementById('realName').value;
+    const realName = document.getElementById('inpRealName').value;
     const dob = document.getElementById('dob').value;
     const genderElement = document.querySelector('input[name="gender"]:checked');
     const gender = genderElement ? genderElement.value : [];
-    const contory = document.getElementById('contory').value;
+    const country = document.getElementById('country').value;
     const state = document.getElementById('states').value;
     const district = document.getElementById('district').value;
     const uniqeName = document.getElementById('uniqeName').value;
@@ -630,7 +630,7 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email: chechEmailOnSessionStorage
+            realName, dob, gender, country, state, district, uniqeName, password, confirmPassword, email: chechEmailOnSessionStorage
         })
     });
     if (response.ok) {
