@@ -1,5 +1,6 @@
 require('dotenv').config();
 const db = require('../config/database');
+const bcrypt = require('bcrypt'); // for password hashing
 
 exports.regUser = async (req, res) => {
     const { realName, dob, gender, country, state, district, uniqeName, password, confirmPassword, email } = req.body;
@@ -12,9 +13,14 @@ exports.regUser = async (req, res) => {
                 message: "user allready exist! try with diffrent uniqe name 400"
             });
         }
+
+        //Encryption 
+        const saltRound = 8;
+        const hashedPassword = await bcrypt.hash(password, saltRound);
+
         const [insertDataToDB] = await db.query(
             "INSERT INTO registration (realName, dob, gender, contory, state, district, uniqeName, password, confirmPassword, email) VALUES (?,?,?,?,?,?,?,?,?,?)",
-            [realName, dob, gender, country, state, district, uniqeName, password, confirmPassword, email]
+            [realName, dob, gender, country, state, district, uniqeName, hashedPassword, confirmPassword, email]
         );
         await db.query(
             "DELETE FROM email_otps WHERE email = ?", [email]
