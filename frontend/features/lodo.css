@@ -1,0 +1,70 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+#board {
+    background-color: #ccc;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    aspect-ratio: 1/1;
+    width: 100%;
+    max-width: 600px;
+    gap: 1px;
+
+}
+#board button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* background-color: #ffffff; */ /* did this and was goolgling like why group color isn't working*/
+    cursor: pointer;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+#btn037, #btn092, #btn107, #btn108, #btn109, #btn110, #btn111, #btn001, #btn002, #btn003, #btn004, #btn005, #btn006, #btn016, #btn017, #btn018, #btn019, #btn020, #btn021, #btn031, #btn032, #btn033, #btn034, #btn035, #btn036, #btn046, #btn047, #btn048, #btn049, #btn050, #btn051, #btn061, #btn062, #btn063, #btn064, #btn065, #btn066, #btn076, #btn077, #btn078, #btn079, #btn080, #btn081 {
+    background: red;
+    color: rgb(0, 0, 0);
+    border: none;
+}
+#btn103,#btn024, #btn023, #btn038, #btn053, #btn068, #btn083, #btn010,  #btn011, #btn012, #btn013, #btn014, #btn015, #btn025,  #btn026, #btn027, #btn028, #btn029, #btn030, #btn040,  #btn041, #btn042, #btn043, #btn044, #btn045, #btn055,  #btn056, #btn057, #btn058, #btn059, #btn060, #btn070,  #btn071, #btn072, #btn073, #btn074, #btn075, #btn085,  #btn086, #btn087, #btn088, #btn089, #btn090 {
+    background-color: blue;
+    color: rgb(0, 0, 0);
+}
+#btn189, #btn134, #btn119, #btn118, #btn117, #btn116, #btn115, #btn220, #btn221, #btn222, #btn223, #btn224, #btn225, #btn205, #btn206, #btn207, #btn208, #btn209, #btn210, #btn190, #btn191, #btn192, #btn193, #btn194, #btn195, #btn175, #btn176, #btn177, #btn178, #btn179, #btn180, #btn160, #btn161, #btn162, #btn163, #btn164, #btn165, #btn145, #btn146, #btn147, #btn148, #btn149, #btn150 {
+    background-color: yellow;
+    color: rgb(0, 0, 0);
+}
+#btn123, #btn202, #btn203, #btn188, #btn173, #btn158, #btn143, #btn151, #btn152, #btn153, #btn154, #btn155, #btn156, #btn166, #btn167, #btn168, #btn169, #btn170, #btn171, #btn181, #btn182, #btn183, #btn184, #btn185, #btn186, #btn196, #btn197, #btn198, #btn199, #btn200, #btn201, #btn211, #btn212, #btn213, #btn214, #btn215, #btn216, #btn136, #btn137, #btn138, #btn139, #btn140, #btn141 {
+    background-color: green;
+    color: rgb(0, 0, 0);
+}
+#btn097, #btn098, #btn099, #btn112, #btn113, #btn114, #btn127, #btn128, #btn129 {
+    background-color: rgb(151, 125, 125);
+    color: white;
+}
+
+/* safe zones */
+#btn092::before, #btn037::before, #btn024::before, #btn103::before, #btn134::before, #btn189::before, #btn202::before, #btn123::before {
+    content: "\25c6";
+    font-size: 200%;
+}
+
+
+.dice {
+    background-color: bisque;
+    padding: 1rem;
+    margin: 1rem;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
