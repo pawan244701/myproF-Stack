@@ -14,7 +14,8 @@ exports.loginUser = async (req, res) => {
 
         const user = rows[0]; // getting the user obj
         const isPasswordMached = await bcrypt.compare(pass, user.password); // bcrypt password comparision
-        if (isPasswordMached !== user.password) {
+        // earlier i forgot to remove from my if condition: !== user.password
+        if (!isPasswordMached) {
             return res.status(401).json({
                 message: "no user or wrong password 401"
             });
