@@ -326,7 +326,7 @@ const locations = {
         "Nagaland":
             [
                 "chumoukedima", "dimapur", "kiphire", "kohima", "longleng", "mokokchung", "mon", "nipani",
-                "noklak", "peren", "phek", , "shamator", "tuensang", "wokha", "zunheboto", "tseminyu"
+                "noklak", "peren", "phek", "shamator", "tuensang", "wokha", "zunheboto", "tseminyu"
             ],
 
         "Odisha":
@@ -611,7 +611,8 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
     const realName = document.getElementById('inpRealName').value;
     const dob = document.getElementById('dob').value;
     const genderElement = document.querySelector('input[name="gender"]:checked');
-    const gender = genderElement ? genderElement.value : [];
+    const gender = genderElement ? genderElement.value : "";
+
     const country = document.getElementById('country').value;
     const state = document.getElementById('states').value;
     const district = document.getElementById('district').value;
