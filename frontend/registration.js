@@ -1,5 +1,5 @@
-const chechEmailOnSessionStorage = sessionStorage.getItem('userEmail');
-if (!chechEmailOnSessionStorage) {
+const checkEmailOnSessionStorage = sessionStorage.getItem('userEmail');
+if (!checkEmailOnSessionStorage) {
     alert('Access denied! please verify Email first.');
     window.location.href = 'email.html';
 }
@@ -631,7 +631,7 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            realName, dob, gender, country, state, district, uniqeName, password, confirmPassword, email: chechEmailOnSessionStorage
+            realName, dob, gender, country, state, district, uniqeName, password, confirmPassword, email: checkEmailOnSessionStorage
         })
     });
     if (response.ok) {
