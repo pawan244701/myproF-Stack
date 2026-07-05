@@ -75,6 +75,13 @@ input:hover, select:hover {
 
 }
 
+#genderRadio input[type="radio"]:checked + .diffRadioBtn {
+    background-color: #8a8abd;
+    border-color: #ffffff;
+    font-weight: bold;
+
+}
+
 .diffRadioBtn {
     flex: 1;
     display: block;
