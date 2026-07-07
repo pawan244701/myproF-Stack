@@ -87,7 +87,6 @@ function tokenClickHandler(clickedToken) {
     const homeCells = playerHomeMaping[activePlayer];
 
     if (homeCells.includes(currentCellIds)) {
-        console.log(`printing ${clickedToken}`);
         if (displayDice.innerHTML !== '6') {
             currentTurnIindex = (currentTurnIindex + 1) % 4;
             hasRolled = false;
@@ -98,6 +97,29 @@ function tokenClickHandler(clickedToken) {
             startingCellElement.appendChild(clickedToken);
             hasRolled = false;
         }
+    } else {
+        const diceValue = +displayDice.innerHTML;
+        const playerTracks = {
+            red: trackPathRed,
+            blue: trackPathBlue,
+            yellow: trackPathYellow,
+            green: trackPathGreen
+        };
+        const currentTrack = playerTracks[activePlayer];
+
+        const currentIndex = currentTrack.indexOf(currentCellIds);
+        const targetIndex = currentIndex + diceValue;
+
+        const targetCellId = currentTrack[targetIndex];
+        const targetCellElement = document.getElementById(targetCellId);
+
+        if(targetCellElement) {
+            targetCellElement.appendChild(clickedToken)
+        }
+        if(diceValue !== 6) {
+            currentTurnIindex = (currentTurnIindex + 1) % 4;
+        }
+        hasRolled = false;
     }
 }
 
