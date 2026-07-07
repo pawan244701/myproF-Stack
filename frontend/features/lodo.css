@@ -1,37 +1,41 @@
 .mainContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     min-height: 100vh;
     width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
 
 }
 
 #board {
     background-color: #ccc;
-    padding: 1rem;
+    padding: 0.5rem;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(15, 1fr);
     aspect-ratio: 1/1;
-    width: 100%;
-    max-width: 600px;
+    width: 95vw;
+    max-width: 550px;
     gap: 1px;
-    position: fixed;
+    position: relative;
+    box-sizing: border-box;
 
 }
 
 #board button {
+    aspect-ratio: 1/1;
     width: 100%;
     height: 100%;
     border: none;
-    /* background-color: #ffffff; */
-    /* did this and was goolgling like why group color isn't working*/
-    /* cursor: pointer; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
 }
 
 #btn037, #btn092, #btn107, #btn108, #btn109, #btn110, #btn111, #btn001, #btn002, #btn003, #btn004, #btn005, #btn006, #btn016, #btn017, #btn018, #btn019, #btn020, #btn021, #btn031, #btn032, #btn033, #btn034, #btn035, #btn036, #btn046, #btn047, #btn048, #btn049, #btn050, #btn051, #btn061, #btn062, #btn063, #btn064, #btn065, #btn066, #btn076, #btn077, #btn078, #btn079, #btn080, #btn081 {
@@ -56,26 +60,39 @@
 }
 
 #btn097, #btn098, #btn099, #btn112, #btn113, #btn114, #btn127, #btn128, #btn129 {
-    background-color: rgb(151, 125, 125);
-    color: white;
+    background-color: rgb(223, 223, 223);
+    color: rgb(0, 0, 0);
+    border-radius: 0.5rem;
 }
 
 /* safe zones */
-#btn092::before, #btn037::before, #btn024::before, #btn103::before, #btn134::before, #btn189::before, #btn202::before, #btn123::before {
+#btn092, #btn037, #btn024, #btn103, #btn134, #btn189, #btn202, #btn123 {
+    border-radius: 0.75rem;
+}
+
+/* #btn092::before, #btn037::before, #btn024::before, #btn103::before, #btn134::before, #btn189::before, #btn202::before, #btn123::before {
     content: "\25c6";
     font-size: 200%;
-}
+} */
 
 #btn113 {
     color: #ffffff;
     background-color: rgb(151, 125, 125);
     font-size: 32px;
 }
+
 .playerH1 {
     margin: 0px;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
+
+.playBtn {
+    padding: 1rem 1.5rem;
+    margin-top: 0px;
+    border-radius: 1rem;
+}
+
 .dicePlay {
     background: bisque;
     padding: 1rem;
@@ -96,37 +113,12 @@
     background-color: red;
     border: 2px solid black;
 }
-#diceRed {
-    width: 4rem;
-    height: 4rem;
-    background-color: #eaeaea;
-    border: none;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-
-}
-.playBtn {
-    padding: 1rem 1.5rem;
-    margin-top: 0px;
-    border-radius: 1rem;
-}
 
 #dicePlayGreen {
     bottom: 2rem;
     left: 2rem;
     background-color: green;
     border: 2px solid black;
-}
-#diceGreen {
-    width: 4rem;
-    height: 4rem;
-    background-color: #eaeaea;
-    border: none;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-
 }
 
 #dicePlayBlue {
@@ -135,16 +127,6 @@
     background-color: blue;
     border: 2px solid black;
 }
-#diceBlue {
-    width: 4rem;
-    height: 4rem;
-    background-color: #eaeaea;
-    border: none;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-
-}
 
 #dicePlayYellow {
     bottom: 2rem;
@@ -152,47 +134,23 @@
     background-color: yellow;
     border: 2px solid black;
 }
-#diceYellow {
-    width: 4rem;
-    height: 4rem;
-    background-color: #eaeaea;
-    border: none;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-
-}
-
-
-/*
-#playRed {
-    cursor: pointer;
-    background-color: #282525;
-    color: rgb(255, 0, 0);
-    border: none;
-    padding: 0.4rem 0.9rem;
-    border-radius: 0.5rem;
-    
-}
-#playRed:hover {
-    cursor: pointer;
-    background-color: #ab3e3e;
-    
-} */
 
 .tokenRedCls {
     background-color: #ff0000;
     color: rgb(255, 0, 43);
     width: 25px;
     height: 25px;
+    aspect-ratio: 1/1;
+    flex-shrink: 0;
     border-radius: 50%;
     border: 1.5px solid black;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
-.tokenBlueCls{
-    background-color: #0000ff;
-    color: #0000ff;
+
+.tokenBlueCls {
+    background-color: blue;
+    color: blue;
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -200,7 +158,8 @@
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
     cursor: pointer;
 }
-.tokenYellowCls{
+
+.tokenYellowCls {
     background-color: #e5ff00;
     color: #e5ff00;
     width: 25px;
@@ -210,9 +169,10 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
-.tokenGreenCls{
-    background-color: #00ff00;
-    color: #00ff00;
+
+.tokenGreenCls {
+    background-color: green;
+    color: green;
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -220,3 +180,17 @@
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
     cursor: pointer;
 }
+
+
+/* 
+// commented out bttons in html
+#diceRed, #diceGreen, #diceBlue, #diceYellow {
+    width: 4rem;
+    height: 4rem;
+    background-color: #eaeaea;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+} */
