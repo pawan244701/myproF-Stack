@@ -1,6 +1,7 @@
 // GLOBEL declarations
 const players = ['red', 'blue', 'yellow', 'green'];
 let currentTurnIindex = 0;
+const safeZones = ['btn092', 'btn037', 'btn024', 'btn103', 'btn134', 'btn189', 'btn202', 'btn123'];
 const trackPath = ['btn092', 'btn093', 'btn094', 'btn095', 'btn096', 'btn082', 'btn067', 'btn052', 'btn037', 'btn022', 'btn007', 'btn008', 'btn009', 'btn024', 'btn039', 'btn054', 'btn069', 'btn084', 'btn100', 'btn101', 'btn102', 'btn103', 'btn104', 'btn105', 'btn120', 'btn135', 'btn134', 'btn133', 'btn132', 'btn131', 'btn130', 'btn144', 'btn159', 'btn174', 'btn189', 'btn204', 'btn219', 'btn218', 'btn217', 'btn202', 'btn187', 'btn172', 'btn157', 'btn142', 'btn126', 'btn125', 'btn124', 'btn123', 'btn122', 'btn121', 'btn106', 'btn091'];
 const trackPathRed = ['btn092', 'btn093', 'btn094', 'btn095', 'btn096', 'btn082', 'btn067', 'btn052', 'btn037', 'btn022', 'btn007', 'btn008', 'btn009', 'btn024', 'btn039', 'btn054', 'btn069', 'btn084', 'btn100', 'btn101', 'btn102', 'btn103', 'btn104', 'btn105', 'btn120', 'btn135', 'btn134', 'btn133', 'btn132', 'btn131', 'btn130', 'btn144', 'btn159', 'btn174', 'btn189', 'btn204', 'btn219', 'btn218', 'btn217', 'btn202', 'btn187', 'btn172', 'btn157', 'btn142', 'btn126', 'btn125', 'btn124', 'btn123', 'btn122', 'btn121', 'btn106', 'btn107', 'btn108', 'btn109', 'btn110', 'btn111', 'btn112'];
 const trackPathBlue = ['btn024', 'btn039', 'btn054', 'btn069', 'btn084', 'btn100', 'btn101', 'btn102', 'btn103', 'btn104', 'btn105', 'btn120', 'btn135', 'btn134', 'btn133', 'btn132', 'btn131', 'btn130', 'btn144', 'btn159', 'btn174', 'btn189', 'btn204', 'btn219', 'btn218', 'btn217', 'btn202', 'btn187', 'btn172', 'btn157', 'btn142', 'btn126', 'btn125', 'btn124', 'btn123', 'btn122', 'btn121', 'btn106', 'btn091', 'btn092', 'btn093', 'btn094', 'btn095', 'btn096', 'btn082', 'btn067', 'btn052', 'btn037', 'btn022', 'btn007', 'btn008', 'btn023', 'btn038', 'btn023', 'btn053', 'btn068', 'btn083', 'btn098'];
@@ -106,23 +107,30 @@ function tokenClickHandler(clickedToken) {
             green: trackPathGreen
         };
         const currentTrack = playerTracks[activePlayer];
-
         const currentIndex = currentTrack.indexOf(currentCellIds);
         const targetIndex = currentIndex + diceValue;
-
         const targetCellId = currentTrack[targetIndex];
         const targetCellElement = document.getElementById(targetCellId);
-
-        if(targetCellElement) {
-            targetCellElement.appendChild(clickedToken)
+        if (targetCellElement) {
+            targetCellElement.appendChild(clickedToken);
+            //win check
+            const winningCellId = winningCellIds[activePlayer];
+            const tokenToCheck = playerTokenIds[activePlayer];
+            const hasWon = tokenToCheck.every(function (tokenId) {
+                const tokenElement = document.getElementById(tokenId);
+                return tokenElement && tokenElement.parentElement.id === winningCellId;
+            });
+            if (hasWon) {
+                alert(`${activePlayer} WON the Game!`);
+                return;
+            }
         }
-        if(diceValue !== 6) {
+        if (diceValue !== 6) {
             currentTurnIindex = (currentTurnIindex + 1) % 4;
         }
         hasRolled = false;
     }
 }
-
 
 // add EVENTLISTENERS
 playRedBtn.addEventListener('click', () => diceRoll('red'));
