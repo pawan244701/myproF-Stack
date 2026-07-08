@@ -26,6 +26,13 @@ const playerTokenIds = {
 const diceNormalValue = 0;
 let hasRolled = false;
 
+const playerTracks = {
+    red: trackPathRed,
+    blue: trackPathBlue,
+    yellow: trackPathYellow,
+    green: trackPathGreen
+};
+
 // getting HTML elements
 const displayDice = document.getElementById('btn113');
 const playRedBtn = document.getElementById('playRedBtn');
@@ -47,6 +54,41 @@ function diceRoll(clickedPlayerColor) {
     displayDice.style.backgroundColor = "#923d3d";
     setTimeout(function () {
         const rolledDiceValue = Math.floor(Math.random() * 6) + 1;
+
+        // condition checking if token in winLIne waiting for 2 player got 5 other tokens are in home than pass the turn
+        let canMoveTokenAtLeastOne = false;
+        playerTokenIds[clickedPlayerColor].forEach(function (tokenId) {
+            let tokenEle = document.getElementById(tokenId);
+            if (tokenEle) {
+                let currentCellIdentity = tokenEle.parentElement.id;
+                if (playerHomeMaping[clickedPlayerColor].includes(currentCellIdentity)) {
+                    if (rolledDiceValue === 6) {
+                        canMoveTokenAtLeastOne = true;
+                    }
+                } else {
+                    if (currentCellIdentity !== winningCellIds[clickedPlayerColor]) {
+                        const currentTrack = playerTracks[clickedPlayerColor];
+                        const currentIndex = currentTrack.indexOf(currentCellIdentity);
+
+                        if (currentIndex !== -1) {
+                            const targetIndex = currentIndex + rolledDiceValue;
+                            if (targetIndex < currentTrack.length) {
+                                canMoveTokenAtLeastOne = true;
+                            }
+
+                        }
+                    }
+                }
+            }
+        });
+        if (!canMoveTokenAtLeastOne) {
+            displayDice.innerHTML = rolledDiceValue;
+            displayDice.style.backgroundColor = clickedPlayerColor;
+            hasRolled = false;
+            currentTurnIindex = (currentTurnIindex + 1) % 4;
+            return;
+        }
+
         displayDice.innerHTML = rolledDiceValue;
         displayDice.style.backgroundColor = clickedPlayerColor;
         displayDice.style.color = 'white';
@@ -79,6 +121,8 @@ function diceRoll(clickedPlayerColor) {
 
 // CLICK token
 function tokenClickHandler(clickedToken) {
+    let earnBonusTurn = false;
+
     if (hasRolled === false) return;
     if (!clickedToken.id.includes(players[currentTurnIindex])) {
         return;
@@ -100,18 +144,36 @@ function tokenClickHandler(clickedToken) {
         }
     } else {
         const diceValue = +displayDice.innerHTML;
-        const playerTracks = {
-            red: trackPathRed,
-            blue: trackPathBlue,
-            yellow: trackPathYellow,
-            green: trackPathGreen
-        };
+
         const currentTrack = playerTracks[activePlayer];
         const currentIndex = currentTrack.indexOf(currentCellIds);
         const targetIndex = currentIndex + diceValue;
+        if (targetIndex >= currentTrack.length) {
+            return;
+        }
         const targetCellId = currentTrack[targetIndex];
         const targetCellElement = document.getElementById(targetCellId);
         if (targetCellElement) {
+            if (targetCellId === winningCellIds[activePlayer]) {
+                earnBonusTurn = true;
+            }
+            let enemyToken = targetCellElement.querySelector('.token');
+            if (enemyToken && !safeZones.includes(targetCellId) && !enemyToken.id.includes(activePlayer)) {
+                let enemyColor = "";
+                if (enemyToken.id.includes('red')) enemyColor = 'red';
+                if (enemyToken.id.includes('blue')) enemyColor = 'blue';
+                if (enemyToken.id.includes('yellow')) enemyColor = 'yellow';
+                if (enemyToken.id.includes('green')) enemyColor = 'green';
+
+                let enemyHomeCells = playerHomeMaping[enemyColor];
+                let enemyCellId = enemyHomeCells.find(id => {
+                    return document.getElementById(id).children.length === 0;
+                });
+                if (enemyCellId) {
+                    document.getElementById(enemyCellId).appendChild(enemyToken);
+                    earnBonusTurn = true;
+                }
+            }
             targetCellElement.appendChild(clickedToken);
             //win check
             const winningCellId = winningCellIds[activePlayer];
@@ -125,7 +187,7 @@ function tokenClickHandler(clickedToken) {
                 return;
             }
         }
-        if (diceValue !== 6) {
+        if (diceValue !== 6 && !earnBonusTurn) {
             currentTurnIindex = (currentTurnIindex + 1) % 4;
         }
         hasRolled = false;
