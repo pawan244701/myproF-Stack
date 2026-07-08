@@ -19,7 +19,7 @@
     aspect-ratio: 1/1;
     width: 95vw;
     max-width: 550px;
-    /* gap: 1px; */
+    gap: 0.3px;
     position: relative;
     box-sizing: border-box;
 
