@@ -1,4 +1,91 @@
 body {
+    /* background-color: #121214; */
+    color: #341d1d;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    margin: 0%;
+    padding: 0%;
+
+}
+
+/* top bar (logo, me, userprofile) */
+.mainHeader {
+    background-color: pink;
+    border-radius: 1.5rem;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    width: 90%;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+.header-middle {
+    justify-self: center;
+}
+
+/* all anquer tag */
+a {
+    text-decoration: none;
+}
+
+/* images section settings */
+.image-slider {
+    background-color: #aa6c6c;
+    padding: 2rem 1rem 2rem 1rem;
+    margin: 4rem 1rem 4rem 1rem;
+    border-radius: 0rem 2rem;
+    box-shadow: 0rem 0rem 2rem 3rem #11ccff;
+    justify-content: center;
+    align-items: center;
+
+}
+.images marquee {
+    display: flex;
+    align-items: center;
+}
+.images img {
+    width: 50vw;
+    min-width: 200px;
+    max-width: 600px;
+    aspect-ratio: 16/9;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    object-fit: contain; /* to make all size imgs fit w/out croping and reapecting their sizes */
+
+}
+
+footer {
+    margin-top: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
     background-color: #ffffff;
     color: #000000;
 }
@@ -89,4 +176,4 @@ iframe {
     border: none;
     overflow: hidden;
 }
-
+ */

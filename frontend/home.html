@@ -9,83 +9,73 @@
 </head>
 
 <body>
-    <header class="headerCls">
-        <a href="/home.html">
-            <img src="image.jpg" alt="logo">
-        </a>
-        <a href="#">
-            <span>pawan244701</span>
-        </a>
-        <nav>
-            <div class="headerNavCls">
-                <button id="profileBtn" class="profileDropdownBtn">
-                    <span class="profileIcon">&#128100;</span><span class="arrow">&#9663;</span>
-                </button>
-                <ul class="profileDropdownListForProfile">
-                    <li><a href="#">My Profile</a></li>
-                    <li><a href="#">Game Status</a></li>
-                    <li><a href="#">Account Setting</a></li>
-                </ul>
-            </div>
-            <button id="logoutBtn">Logout</button>
-        </nav>
+    <button id="logoutBtn">Logout</button>
+
+    <input type="checkbox" id="sideBar-menu" hidden>
+
+    <header class="mainHeader">
+        <a href="/home.html" class="header-left"><img src="logo.png" alt="LOGO"></a>
+        <a href="#pawan244701" class="header-middle">pawan244701</a>
+        <label for="sideBar-menu" class="header-right user-SideBar-menu">YOU</label>
     </header>
-    <h1 id="greetmsg"></h1>
-    <div class="divMyGames">
-        <main class="gameSection">
-            <h2>Games</h2>
-            <div class="gameGrid">
-                <a href="/chess.html">
-                    <article class="gameCards">
-                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
-                        <h3>Chess</h3>
-                        <p>Play Chess by clicking here.</p>
-                    </article>
-                </a>
-                <a href="features/lodo.html">
-                    <article class="gameCards">
-                        <img src="Lodo.png" alt="Lodo Thumbnil" class="lodoIcon">
-                        <h3>Lodo</h3>
-                        <p>Play Lodo by clicking here.</p>
-                    </article>
-                </a>
-                <a href="/game3">
 
-                    <article class="gameCards">
-                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
-                        <h3>game3</h3>
-                        <p>play chess by clicking here.</p>
-                    </article>
-                </a>
-                <a href="/game4">
+    <aside class="sideBar-slider">
+        <label for="sideBar-menu" class="close-sideBar-btn">Close</label>
 
-                    <article class="gameCards">
-                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
-                        <h3>game4</h3>
-                        <p>play chess by clicking here.</p>
-                    </article>
-                </a>
-                <a href="/gaem5">
+        <div class="sideBar-profile">
+            <div class="user-icon">user icon</div>
+            <h3>Username</h3>
+            <p>User Status: Authenticated</p>
+        </div>
+        <hr>
+        <nav class="sideBar-nav">
+            <a href="#dashboard" class="dashboard-link">Dashboard</a>
+            <a href="#settings" class="settings-link">Settings</a>
+            <a href="#logout" class="logout-link">Logout</a>
+        </nav>
+    </aside>
+    <main class="dashboard-container">
+        <h1 id="welcome-user">Welcome~User</h1>
 
-                    <article class="gameCards">
-                        <img src="chess.png" alt="Chess Thumbnil" class="chessIcon">
-                        <h3>game5</h3>
-                        <p>play chess by clicking here.</p>
-                    </article>
-                </a>
+        <section class="games-board">
+            <div class="game-grid">
+                <article class="game-card">Game 1</article>
+                <article class="game-card">Game 1</article>
+                <article class="game-card">Game 1</article>
+                <article class="game-card">Game 1</article>
             </div>
-        </main>
-        <aside class="sideSection">
-            <h2>Utilities</h2>
-            <div class="utilityCard calculatorBox">
-                <!-- <h3>Calculator</h3> -->
-                <iframe src="/features/calculator.html" frameborder="0"></iframe>
-            </div>
-        </aside>
+        </section>
 
+        <section class="image-slider">
+            <marquee behavior="scroll" direction="left" scrollamount="10" class="images">
+                <img src="zmg1.jpeg" alt="zmg1">
+                <img src="zmg2.png" alt="zmg2">
+                <img src="zmg3.jpeg" alt="zmg3">
+                <img src="zmg4.jpeg" alt="zmg4">
+                <img src="zmg5.jpg" alt="zmg5">
+                <img src="zmg6.png" alt="zmg5">
+                <img src="zmg7.jpeg" alt="zmg5">
+                <img src="zmg8.jpeg" alt="zmg5">
+                <img src="zmg9.jpg" alt="zmg5">
+                <img src="zmg10.png" alt="zmg5">
+                <img src="zmg11.jpeg" alt="zmg5">
+                <img src="zmg12.jpeg" alt="zmg5">
+            </marquee>
+        </section>
+    </main>
 
-    </div>
+    <footer class="footer-cls">
+        <div class="copy-right-cls">
+            <p>NO &copy; 2026 pawan244701</p>
+        </div>
+        <nav class="footer-links-nav-cls">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">contect Me</a>
+        </nav>
+    </footer>
     <script src="home.js"></script>
+
 </body>
 
 </html>
