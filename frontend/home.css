@@ -15,14 +15,24 @@ body {
     background-color: pink;
     border-radius: 1.5rem;
     margin-top: 0.5rem;
-    padding: 1rem;
+    padding: 0.5rem;
     width: 90%;
     justify-self: center;
     display: grid;
     grid-template-columns: auto 1fr auto;
 }
+
 .header-middle {
     justify-self: center;
+    align-self: center;
+    color: rgb(83, 82, 75);
+    transition: transform ease-in-out;
+}
+
+.header-middle:hover {
+    justify-self: center;
+    color: rgb(0, 0, 0);
+    transform: scale(1.4);
 }
 
 /* all anquer tag */
@@ -41,10 +51,12 @@ a {
     align-items: center;
 
 }
+
 .images marquee {
     display: flex;
     align-items: center;
 }
+
 .images img {
     width: 50vw;
     min-width: 200px;
@@ -52,7 +64,8 @@ a {
     aspect-ratio: 16/9;
     margin: 0.5rem;
     border-radius: 1rem;
-    object-fit: contain; /* to make all size imgs fit w/out croping and reapecting their sizes */
+    object-fit: contain;
+    /* to make all size imgs fit w/out croping and reapecting their sizes */
 
 }
 
@@ -60,6 +73,102 @@ footer {
     margin-top: auto;
 }
 
+/* sideBar */
+.user-icon {
+    background-color: #e686e6;
+    border-radius: 1rem;
+    padding: 0.4rem;
+    transition: transform 0.4s ease-in-out;
+}
+.user-icon:hover {
+    background-color: #ccff00;
+    transform: scale(1.2);
+}
+.sideBar-slider {
+    position: fixed;
+    width: 15%;
+    height: 50%;
+    right: 0px;
+    top: 5rem;
+
+    background-color: #ccff00;
+    padding: 1rem;
+    border-radius: 2rem 0rem;
+    z-index: 1000;
+    transform: translate(100%); /* pushing sideBar to 100% away so that it can be hidden */
+    transition: right 0.3s ease-in-out;
+}
+#sideBar-menu:checked ~ .sideBar-slider {
+    transform: translateX(-5%);
+}
+
+nav ul {
+    margin: 1rem;
+    padding: 0.3rem;
+}
+
+nav ul li a {
+    color: rgb(0, 21, 255);
+    font-size: 15px;
+    display: block;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: aqua;
+    transform: translate(0.5rem, 0);
+}
+
+/* main */
+main {
+    background-color: bisque;
+    width: 100%;
+    height: 100%;
+    margin-top: 2rem;
+}
+#welcome-user {
+    justify-self: center;
+}
+/* game section */
+.games-board {
+    justify-self: center;
+    background-color: #31c251;
+    width: 90%;
+    height: 100%;
+    margin: 4rem 2rem 8rem 2rem;
+    border-radius: 1rem;
+    border: 4px solid greenyellow;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.game-card {
+    aspect-ratio: 1/1;
+    background-color: #11ccff;
+    border: 2px solid #341d1d;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+.game-card:hover {
+    transform: scale(1.04);
+
+}
+
+/*  */
 
 
 

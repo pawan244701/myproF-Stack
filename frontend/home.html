@@ -9,29 +9,28 @@
 </head>
 
 <body>
-    <button id="logoutBtn">Logout</button>
+    <!-- <button id="logoutBtn">Logout</button> -->
 
     <input type="checkbox" id="sideBar-menu" hidden>
 
     <header class="mainHeader">
         <a href="/home.html" class="header-left"><img src="logo.png" alt="LOGO"></a>
         <a href="#pawan244701" class="header-middle">pawan244701</a>
-        <label for="sideBar-menu" class="header-right user-SideBar-menu">YOU</label>
+        <label for="sideBar-menu" class="header-right user-icon">YOU</label>
     </header>
 
     <aside class="sideBar-slider">
-        <label for="sideBar-menu" class="close-sideBar-btn">Close</label>
-
         <div class="sideBar-profile">
-            <div class="user-icon">user icon</div>
             <h3>Username</h3>
-            <p>User Status: Authenticated</p>
+            <p>Status: Verified</p>
         </div>
         <hr>
         <nav class="sideBar-nav">
-            <a href="#dashboard" class="dashboard-link">Dashboard</a>
-            <a href="#settings" class="settings-link">Settings</a>
-            <a href="#logout" class="logout-link">Logout</a>
+            <ul>
+                <li><a href="#dashboard" class="dashboard-link">Dashboard</a></li>
+                <li><a href="#settings" class="settings-link">Settings</a></li>
+                <li><a href="#logout" id="logoutBtn" class="logout-link">Logout</a></li>
+            </ul>
         </nav>
     </aside>
     <main class="dashboard-container">
@@ -48,18 +47,18 @@
 
         <section class="image-slider">
             <marquee behavior="scroll" direction="left" scrollamount="10" class="images">
-                <img src="homeImgs/zmg1.jpeg" alt="zmg1">
-                <img src="homeImgs/zmg2.png" alt="zmg2">
-                <img src="homeImgs/zmg3.jpeg" alt="zmg3">
-                <img src="homeImgs/zmg4.jpeg" alt="zmg4">
-                <img src="homeImgs/zmg5.jpg" alt="zmg5">
-                <img src="homeImgs/zmg6.png" alt="zmg5">
-                <img src="homeImgs/zmg7.jpeg" alt="zmg5">
-                <img src="homeImgs/zmg8.jpeg" alt="zmg5">
-                <img src="homeImgs/zmg9.jpg" alt="zmg5">
-                <img src="homeImgs/zmg10.png" alt="zmg5">
-                <img src="homeImgs/zmg11.jpeg" alt="zmg5">
-                <img src="homeImgs/zmg12.jpeg" alt="zmg5">
+                <img src="zmg1.jpeg" alt="zmg1">
+                <img src="zmg2.png" alt="zmg2">
+                <img src="zmg3.jpeg" alt="zmg3">
+                <img src="zmg4.jpeg" alt="zmg4">
+                <img src="zmg5.jpg" alt="zmg5">
+                <img src="zmg6.png" alt="zmg5">
+                <img src="zmg7.jpeg" alt="zmg5">
+                <img src="zmg8.jpeg" alt="zmg5">
+                <img src="zmg9.jpg" alt="zmg5">
+                <img src="zmg10.png" alt="zmg5">
+                <img src="zmg11.jpeg" alt="zmg5">
+                <img src="zmg12.jpeg" alt="zmg5">
             </marquee>
         </section>
     </main>
@@ -75,7 +74,6 @@
         </nav>
     </footer>
     <script src="home.js"></script>
-
 </body>
 
 </html>
