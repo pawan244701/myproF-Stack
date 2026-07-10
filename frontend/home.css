@@ -1,4 +1,3 @@
-
 body {
     background-color: #f8fafc;
     color: #0f172a;
@@ -16,12 +15,18 @@ body {
     background-color: #ffffff;
     color: #0f172a;
     border-radius: 1.5rem;
-    margin-top: 0.5rem;
+    margin-top: 3rem;
     padding: 0.5rem;
     width: 90%;
     justify-self: center;
     display: grid;
     grid-template-columns: auto 1fr auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.mainHeader:hover {
+    transform: scale(1.01);
+    border: 1px solid #475569;
 }
 
 .header-middle {
@@ -52,9 +57,38 @@ body {
     }
 }
 
+/* links */
+#social-media-links {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    top: 1rem;
+}
+
+#social-media-links.show {
+    display: flex;
+}
+
+#social-media-links a {
+    border: 1px solid rgb(109, 106, 106);
+    padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: #ffffff;
+    transition: transform 0.2s ease-in-out;
+}
+
+#social-media-links a:hover {
+    transform: scale(1.07);
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.4);
+}
+
 /* all anquer tag */
 a {
     text-decoration: none;
+    color: black;
 }
 
 /* images section settings */
@@ -66,7 +100,6 @@ a {
     box-shadow: 0rem 0rem 2rem 3rem rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;
-
 }
 
 .images marquee {
@@ -83,12 +116,12 @@ a {
     border-radius: 2rem;
     object-fit: contain;
     /* to make all size imgs fit w/out croping and reapecting their sizes */
-
 }
 
 footer {
     margin-top: auto;
 }
+
 
 /* sideBar */
 .user-icon {
@@ -110,7 +143,7 @@ footer {
     max-width: 75%;
     height: 50%;
     right: 0px;
-    top: 5rem;
+    top: 6rem;
 
     background-color: #ffffff;
     padding: 1rem;
@@ -171,7 +204,7 @@ main {
 .game-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1rem;
     background-color: transparent;
 }
@@ -204,24 +237,24 @@ main {
 }
 
 .game-title {
-    color: black;
     padding: 0.5rem;
     margin: 0px 0px 1rem 0px;
 }
+
 .game-paragraf {
-    color: black;
     padding: 0.5rem;
     margin: 1rem 0px 0px 0px;
     border: 2px solid black;
     border-radius: 1rem;
     transition: transform 0.3s ease-in-out;
 }
+
 .game-paragraf:hover {
     transform: scale(1.2);
     border-color: rgb(75, 91, 78);
 }
-/*  */
 
+/*  */
 
 
 
