@@ -94,3 +94,33 @@ label {
 footer {
     margin-top: auto;
 }
+
+
+
+/* footer */
+/* footer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.footer-links-nav-cls {
+    display: flex;
+    gap: 5vw;
+    justify-self: center;
+}
+
+.footer-links-nav-cls a {
+    display: flex;
+    gap: 5vw;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-links-nav-cls a:hover {
+    transform: scale(1.3);
+    color: blue;
+
+} */
