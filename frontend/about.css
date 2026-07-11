@@ -1,0 +1,26 @@
+* {
+    text-decoration: none;
+    color: black;
+}
+.main-container {
+    background-color: #f2f5f8;
+    margin: 0;
+    padding: 0;
+}
+a {
+    display: inline-block;
+    transition: 0.3s;
+}
+a:hover {
+    color: #3182ce;
+    transform: translate(0.5rem, 0);
+}
+@media (min-width: 700px) {
+    .main-container {
+        background-color: rgb(217, 222, 222);
+        padding: 5rem;
+        margin: 4rem;
+        border-radius: 3rem;
+        box-shadow: 1rem 3rem 2rem 0rem #818386;
+    }    
+}
