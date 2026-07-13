@@ -4,34 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>enter-otp</title>
+    <title>Enter OTP</title>
     <link rel="stylesheet" href="otp.css">
 </head>
 
 <body>
-
-    <form id="otpForm" method="POST">
-        <h1>Enter OTP</h1>
+    <main class="form-container">
         <p>OTP has been send to your email.</p>
-        <input type="text" id="otp" placeholder="010203" required maxlength="6">
-        <button id="otp-btn" type="submit">Verify</button>
-        <a id="reg-btn-cls" href="email.html">
-            <p>send OTP again! session expired!</p>
-        </a>
-    </form>
 
+        <form action="#" method="POST">
+            <h1>Enter OTP</h1>
+            <div>
+                <label for="otp">Enter OTP</label>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" name="otp" id="otp" placeholder="010203"
+                    autocomplete="one-time-code" required maxlength="6">
+            </div>
+            <div>
+                <button id="otp-btn" type="submit">Verify</button>
+            </div>
+            <a id="reg-btn-cls" href="email.html">
+                Send OTP Again! Session Expired!
+            </a>
+        </form>
+    </main>
     <footer class="footer-cls">
         <div class="copy-right-cls">
             <p>&copy; 2026 pawan244701 | Open Source Project</p>
         </div>
-        <nav class="footer-links-nav-cls">
-            <a href="PrivacyPolicy.html" target="_blank">Privacy Policy</a>
-            <a href="about.html" target="_blank">About</a>
+        <nav class="footer-links-nav-cls" aria-label="Footer Navigation">
+            <a href="PrivacyPolicy.html" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="about.html" target="_blank" rel="noopener">About</a>
             <a href="home.html">Home</a>
         </nav>
     </footer>
     <script src="otp.js"></script>
-
 </body>
 
 </html>
+
+
+
+
+</form>
