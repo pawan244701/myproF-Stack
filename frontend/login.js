@@ -1,8 +1,8 @@
-document.getElementById('loginFrm').addEventListener('submit', async (e) => {
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const uniqeName = document.getElementById('uniqeName').value;
-    const pass = document.getElementById('loginPass').value;
+    const uniqeName = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
 
     const response = await fetch('/api/auth/login', {
         method: "POST",

@@ -27,20 +27,17 @@ main {
     /* making main to contain all screen space means all conatint blow it will be pushed to bottom */
     display: flex;
     align-items: center;
-
 }
 
 #loginForm {
     justify-self: center;
-    background-color: #f1f5f9;
     width: 90%;
     margin: 4rem 2rem 4rem 2rem;
     border-radius: 1rem;
     border: 4px solid #e2e8f0;
 
     padding: 2rem;
-    background-color: transparent;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,10 +89,10 @@ footer {
     justify-self: center;
 }
 
-.footer-links-nav-cls a, .signup-link:hover {
+.footer-links-nav-cls a {
     transition: transform 0.3s ease-in-out;
 }
-.footer-links-nav-cls a:hover, .signup-link:hover {
+.footer-links-nav-cls a:hover {
     transform: scale(1.3);
     color: blue;
 }
