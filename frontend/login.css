@@ -50,10 +50,10 @@ main {
 
 /* username and passwd */
 .form-group label, input {
-    background-color: #8f939e;
+    background-color: #f8fafc;
     color: black;
     padding: .4rem;
-    border: 1px solid black;
+    border: 2px solid #e2e8f0;
     border-radius: 1rem;
     transition: translate 0.3s ease-in-out;
 }
@@ -65,7 +65,7 @@ main {
 /* login button and hover */
 #login-btn {
     background-color: #f8fafc;
-    border: 1px solid black;
+    border: 2px solid #e2e8f0;
     border-radius: 1rem;
     padding: 0.5rem 2rem;
     margin-bottom: 1rem;
