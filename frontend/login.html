@@ -6,42 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" href="login.css">
-
 </head>
 
+
+
 <body>
-    <div class="login-form-cls">
+    <main class="login-container">
 
-        <form id="loginFrm" action="" method="post">
-            <h1 id="h1">Login</h1>
-            <div id="uniqe-name">
-                <label for="uniqeName">Username</label>
-                <input type="text" id="uniqeName" placeholder="Username" required>
-            </div>
-            <div id="login-password">
-                <label for="loginPass">Password</label>
-                <input type="password" id="loginPass" placeholder="Password" required>
-            </div>
-            <div class="login-btn-cls">
-                <button type="submit" id="login-btn">Login</button>
-            </div>
-            <a id="signupLink" href="email.html">
-                <p>Don't have an Account! signup</p>
-            </a>
-        </form>
+        <div class="login-form-card">
+            <form id="loginForm" action="#" method="post">
+                <h1>Login</h1>
 
-    </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username" autocomplete="username"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password"
+                        autocomplete="current-password" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="login-btn">Login</button>
+                </div>
+
+                <a id="signupLink" href="email.html" class="signup-link">
+                    Don't have an Account? Sign up
+                </a>
+            </form>
+        </div>
+
+    </main>
     <footer class="footer-cls">
         <div class="copy-right-cls">
             <p>&copy; 2026 pawan244701 | Open Source Project</p>
         </div>
-        <nav class="footer-links-nav-cls">
-            <a href="PrivacyPolicy.html" target="_blank">Privacy Policy</a>
-            <a href="about.html" target="_blank">About</a>
+        <nav class="footer-links-nav-cls" aria-label="Footer Navigation">
+            <a href="PrivacyPolicy.html" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="about.html" target="_blank" rel="noopener">About</a>
             <a href="home.html">Home</a>
         </nav>
     </footer>
-    <script src="login.js"></script>
+
 </body>
 
 </html>
