@@ -11,72 +11,74 @@
 <body>
     <p>Your email has been verified.</p>
 
-    <div class="form-div-cls">
-        <form id="registrationForm" action="" method="post" class="from-cls">
+    <main class="main-form-cls">
+
+        <form id="registrationForm" action="#" method="post">
             <h1 id="h1tag">Personal details</h1>
-            <div id="div-real-name">
-                <label for="realName" id="realName-lbl">Real Name</label>
-                <input id="inpRealName" type="text" placeholder="Real Name" required>
+            <div class="form-group">
+                <label for="inpRealName">Real Name</label>
+                <input id="inpRealName" type="text" name="realName" placeholder="Real Name" autocomplete="name"
+                    required>
             </div>
-            <div id="div-dob">
-                <label for="dob" id="dob-lbl">DOB</label>
-                <input type="date" id="dob" required>
+            <div class="form-group">
+                <label for="dob">DOB</label>
+                <input type="date" name="dob" id="dob" required>
             </div>
-            <div id="div-gender">
-                <label id="gender-lbl">Gender</label>
-                <div id="genderRadio">
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male" class="diffRadioBtn">Male</label>
+            <div class="form-group">
+                    <label>Gender</label>
+                    <div class="genderRadioWrapper">
+                        <input type="radio" id="male" name="gender" value="male" hidden>
+                        <label for="male" class="diffRadioBtn">Male</label>
 
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female" class="diffRadioBtn">Female</label>
-                </div>
-
+                        <input type="radio" id="female" name="gender" value="female" hidden>
+                        <label for="female" class="diffRadioBtn">Female</label>
+                    </div>
             </div>
-            <div id="div-contory">
-                <label for="country" id="country-lbl">Country</label>
+            <div class="form-group">
+                <label for="country">Country</label>
                 <select name="country" id="country">
                     <option value="">--Select Country--</option>
                 </select>
             </div>
-            <div id="div-state">
-                <label for="state" id="state-lbl">State</label>
-                <select name="states" id="states">
+            <div class="form-group">
+                <label for="states">State</label>
+                <select name="state" id="states">
                     <option value="">--Select State--</option>
                 </select>
             </div>
-            <div id="div-district">
-                <label for="district" id="district-lbl">District</label>
+            <div class="form-group">
+                <label for="district">District</label>
                 <select name="district" id="district" required>
                     <option value="">--Select District--</option>
                 </select>
-
             </div>
-            <div id="div-uniqe-name">
-                <label for="uniqeName" id="uniqeName-lbl">Username</label>
-                <input type="text" id="uniqeName" placeholder="Username" required>
+            <div class="form-group">
+                <label for="uniqeName">Username</label>
+                <input type="text" id="uniqeName" name="uniqeName" placeholder="Username" autocomplete="username"
+                    required>
             </div>
-            <div id="div-pass">
-                <label for="password" id="password-lbl">Password</label>
-                <input type="password" id="password" placeholder="kdjsh#a$%87jhAS" required>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="kdjsh#a$%87jhAS"
+                    autocomplete="new-password" required>
             </div>
-            <div id="div-con-pass">
-                <label for="confirmPassword" id="confirmPassword-lbl">Confirm Password</label>
-                <input type="password" id="confirmPassword" placeholder="kdjsh#a$%87jhAS" required>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="kdjsh#a$%87jhAS"
+                    autocomplete="new-password" required>
             </div>
-            <!-- <div class="div-sub-reset-btns"> -->
-            <button type="submit" id="form-btn-1">Create Account</button>
-            <!-- </div> -->
-
+            <div>
+                <button id="submit-btn" type="submit">Create Account</button>
+            </div>
         </form>
-    </div>
+    </main>
     <footer class="footer-cls">
         <div class="copy-right-cls">
             <p>&copy; 2026 pawan244701 | Open Source Project</p>
         </div>
-        <nav class="footer-links-nav-cls">
-            <a href="PrivacyPolicy.html" target="_blank">Privacy Policy</a>
-            <a href="about.html" target="_blank">About</a>
+        <nav class="footer-links-nav-cls" aria-label="Footer Navigation">
+            <a href="PrivacyPolicy.html" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="about.html" target="_blank" rel="noopener">About</a>
             <a href="home.html">Home</a>
         </nav>
     </footer>

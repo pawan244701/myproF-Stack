@@ -1,131 +1,150 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #121214;
-    color: #ffffff;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    margin: 0;
+    align-items: center;
+
+    background-color: #f8fafc;
+    color: #0f172a;
+    width: 100%;
 
 }
 
-#registrationForm {
-    background-color: #1e1e2f;
-    padding: 3rem;
-    border-radius: 1rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: 35rem;
-    box-sizing: border-box;
+a {
+    text-decoration: none;
+    color: black;
+}
 
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 #h1tag {
-    margin-top: 0.25rem;
+    align-self: center;
 }
-
-/* on divs */
-#registrationForm>div {
-    display: grid;
-    grid-template-columns: 8rem 1fr;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    padding: 0.2rem;
-
-    color: #ffffff;
-    font-size: 1rem;
-
-}
-
-
-input, select {
-    background-color: #404069;
-    color: #ffffff;
-    font-size: 1rem;
+#registrationForm {
+    justify-self: center;
     width: 100%;
-    box-sizing: border-box;
-    padding: 0.3rem;
-
+    max-width: 35rem;
+    margin: 4rem 2rem;
     border-radius: 1rem;
-    border-color: #8a8abd;
-    transition: transform 0.2s ease-in-out;
+    border: 4px solid #e2e8f0;
 
+    padding: 2rem 3rem;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: .5rem;
 }
 
-input:hover, select:hover {
-    transform: scale(1.01);
-    background-color: #616181;
-
+.form-group {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    align-items: center;
 }
 
-#genderRadio {
+.form-group label,
+.form-group input:not([type="radio"]),
+.form-group select {
+    background-color: #f8fafc;
+    color: black;
+    padding: .4rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.form-group input:not([type="radio"]):hover,
+.form-group select:hover {
+    background-color: #b0bddb;
+    transform: translate(.5rem) scaleX(1.1);
+}
+
+/* submit button */
+#submit-btn {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 0.5rem 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#submit-btn:hover {
+    background-color: #b0bddb;
+    transform: scale(1.1);
+}
+
+
+
+
+
+/* gender */
+.genderRadioWrapper {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     width: 100%;
-
 }
-
-#genderRadio input[type="radio"] {
+.genderRadioWrapper input[type="radio"] {
     display: none;
-
 }
-
-#genderRadio input[type="radio"]:checked + .diffRadioBtn {
-    background-color: #8a8abd;
+.genderRadioWrapper input[type="radio"]:checked + .diffRadioBtn {
+    background-color: #b0bddb;
     border-color: #ffffff;
     font-weight: bold;
 
 }
-
 .diffRadioBtn {
     flex: 1;
     display: block;
     padding: 0.3rem 0rem;
-    border: 1px solid #8a8abd;
-    background-color: #404069;
     color: #ffffff;
-    border-radius: 1rem;
     cursor: pointer;
     text-align: center;
     transition: all 0.2 ease-in-out;
-    box-sizing: border-box;
-
-} /* this block wasn't workig because i accientaly 
-use id selector sym/ oparetor # 
-after fixing that it was still not working
-bcoz of typos in my html
-*/
+}
 .diffRadioBtn:hover {
     transform: scale(1.02);
-    background-color: #616181;
+    background-color: #b0bddb;
 
 }
 
 
-#form-btn-1 {
-    padding: 0.9rem 2rem;
-    background-color: #404069;
-    color: #ffffff;
-    font-size: 1rem;
-    width: 100%;
 
-    border-radius: 1rem;
-    border-color: #8a8abd;
-    transition: transform 0.2s ease-in-out;
 
-}
-
-#form-btn-1:hover {
-    transform: scale(1.1);
-    background-color: #616181;
-
-}
-
+/* footer */
 footer {
-    margin-top: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.footer-links-nav-cls {
+    display: flex;
+    gap: 5vw;
+    justify-self: center;
+}
+
+.footer-links-nav-cls a {
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-links-nav-cls a:hover {
+    transform: scale(1.3);
+    color: blue;
 }
