@@ -89,10 +89,10 @@ footer {
     justify-self: center;
 }
 
-.footer-links-nav-cls a {
+.footer-links-nav-cls a, .signup-link {
     transition: transform 0.3s ease-in-out;
 }
-.footer-links-nav-cls a:hover {
+.footer-links-nav-cls a:hover, .signup-link:hover {
     transform: scale(1.3);
     color: blue;
 }
