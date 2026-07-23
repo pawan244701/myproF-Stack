@@ -80,11 +80,11 @@ footer {
     justify-self: center;
 }
 
-.footer-links-nav-cls a, #loginLink:hover {
+.footer-links-nav-cls a, .loginLink:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-.footer-links-nav-cls a:hover, #loginLink:hover {
+.footer-links-nav-cls a:hover, .loginLink:hover {
     transform: scale(1.3);
     color: blue;
 }
